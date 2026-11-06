@@ -35,10 +35,10 @@
 
 > ⚠️ **Status: v2.0.0 — Empirical Implementation.**
 >
-> The reference implementation is built and tested (24 tests, 98% coverage)
-> and 5 experiments have been executed. **No real-world deployment has been
-> evaluated.** All empirical results are preliminary. See
-> `REPORTS/v2.0.0/report.md` and Section 9 (Limitations) of the manuscript.
+> Reference implementation built and tested (24 tests, 98% coverage).
+> 5 experiments executed. No real-world deployment evaluated.
+> All empirical results are preliminary. See `REPORTS/v2.0.0/report.md`
+> and Section 9 (Limitations) of the manuscript.
 
 ---
 
@@ -77,8 +77,7 @@ and proactive auto-remediation agents. By decoupling validation from code
 admission, AetherFlow **structurally eliminates** queue starvation and is
 **designed** to reduce integration latency by over an order of magnitude.
 
-The program is specified through **three mathematically rigorous constructs**,
-developed in sequence and adopted individually:
+The program is specified through **three mathematically rigorous constructs**:
 
 | # | Construct | Version | Status |
 |---|---|---|---|
@@ -262,7 +261,7 @@ branch from the admission head.
 | 5 | Scheduler Simulation | 2.5× speedup vs FIFO |
 
 > **Status note:** Experiment 1 uses synthetic data (self-consistency test).
-> Experiments 2–5 use simulated logs. No real-world deployment has been evaluated.
+> Experiments 2–5 use simulated logs. No real-world deployment evaluated.
 > See `REPORTS/v2.0.0/report.md` for full details.
 
 ---
@@ -376,13 +375,12 @@ AetherFlow/
 Version History
 
 Version Release Focus Status
-v2.0.0 2026-11 (https://github.com/gitdeeper15/aetherflow/releases/tag/v2.0.0) Empirical implementation + 5 experiments ✅ Implemented
-v1.0.0 2026-11 (https://github.com/gitdeeper15/aetherflow/releases/tag/v1.0.0) Formalization (3 definitions, 3 propositions) ✅ Defined
+v2.0.0 2026-11 (release) Empirical implementation + 5 experiments ✅ Implemented
+v1.0.0 2026-11 (release) Formalization (3 definitions, 3 propositions) ✅ Defined
 (planned) 2027+ Real-world deployment + benchmarking Not executed
 
 v2.0.0: Reference implementation with 24 tests (98% coverage) and 5 experiments.
-Available on PyPI as aetherflow. Results are preliminary; see
-REPORTS/v2.0.0/report.md for details.
+Results are preliminary; see REPORTS/v2.0.0/report.md for details.
 
 ---
 

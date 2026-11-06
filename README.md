@@ -8,7 +8,24 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23979129.svg)](https://doi.org/10.5281/zenodo.23979129)
 [![License: MIT + CC-BY-4.0](https://img.shields.io/badge/License-MIT%20%2B%20CC--BY--4.0-crimson.svg)](LICENSE)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0003--8903--0029-a6ce39)](https://orcid.org/0009-0003-8903-0029)
+
+<!-- OSF -->
+[![OSF Preregistration](https://img.shields.io/badge/OSF-Preregistration-blueviolet)](https://doi.org/10.17605/OSF.IO/92Y3W)
+[![OSF Project](https://img.shields.io/badge/OSF-Project-blueviolet)](https://osf.io/92y3w)
+[![Registration DOI](https://img.shields.io/badge/Reg.%20DOI-10.17605%2FOSF.IO%2F92Y3W-blue)](https://doi.org/10.17605/OSF.IO/92Y3W)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+<!-- Stack -->
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://python.org)
+
+<!-- Website -->
+[![Website](https://img.shields.io/badge/Website-aetherflow--site.netlify.app-success)](https://aetherflow-site.netlify.app)
+
+<!-- Record -->
+[![Record ID](https://img.shields.io/badge/Record%20ID-AETHERFLOW--01-informational)](https://doi.org/10.5281/zenodo.23979129)
+[![Zenodo](https://img.shields.io/badge/Zenodo-Published-blue)](https://doi.org/10.5281/zenodo.23979129)
+
+---
 
 > ⚠️ **Status: Formalization Stage.** No implementation has been built and no
 > simulation or benchmark has been executed. All numerical values are labeled
@@ -264,9 +281,8 @@ pointers, which AetherGit's changeset tuple provides.
 | **Bitbucket** | [bitbucket.org/gitdeeper15/aetherflow](https://bitbucket.org/gitdeeper15/aetherflow) | Mirror repository | ✅ Active |
 | **Zenodo** | [doi.org/10.5281/zenodo.23979129](https://doi.org/10.5281/zenodo.23979129) | Citable DOI, paper archive | ✅ Published |
 | **OSF** | [doi.org/10.17605/OSF.IO/92Y3W](https://doi.org/10.17605/OSF.IO/92Y3W) | Registration | ✅ Published |
-| **Website** | [aetherflow-site.netlify.app](https://aetherflow-site.netlify.app) | Live documentation | ⚠️ Verify |
+| **Website** | [aetherflow-site.netlify.app](https://aetherflow-site.netlify.app) | Live documentation | ✅ Active |
 | **ORCID** | [orcid.org/0009-0003-8903-0029](https://orcid.org/0009-0003-8903-0029) | Author identity | ✅ Active |
-| **PyPI** | [pypi.org/project/aetherflow](https://pypi.org/project/aetherflow/) | Python package | ❌ **Not yet published** |
 
 > **PyPI note:** Not published because the paper reports **no implementation**
 > (Section 9: Limitations). A future alpha release (`0.1.0a1`) may follow after

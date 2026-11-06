@@ -1,0 +1,248 @@
+{
+  "total_claims": 0,
+  "aligned_claims": 0,
+  "aligned_refs": [],
+  "unaligned_refs": [
+    {
+      "id": 1,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Joeri Engelfriet, Catholijn M. Jonker, Jan Treur (2002). Compositional Verification of Multi-Agent S..."
+    },
+    {
+      "id": 2,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Basem Atiq, Volkan Patoglu, Esra Erdem (2020). Dynamic Multi-Agent Path Finding based on Conflict Re..."
+    },
+    {
+      "id": 3,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Jaewook Lee (2010). Conflict resolution in multi-agent based Intelligent Environments. CrossRef. htt..."
+    },
+    {
+      "id": 4,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Dorin Militaru (2011). Negotiation in Multi-Agent Environments. CrossRef. https://doi.org/10.5772/15..."
+    },
+    {
+      "id": 5,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "R. Kakehi, M. Tokoro (None). A negotiation protocol for conflict resolution in multi-agent environme..."
+    },
+    {
+      "id": 6,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "A. Desrochers, S. Cherkaoui (None). A multi-agent architecture for automated product technical speci..."
+    },
+    {
+      "id": 7,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (None). Environments. CrossRef. https://doi.org/10.1002/9780470061848.ch5..."
+    },
+    {
+      "id": 8,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Meng-Shao Pei, Chun-Ling Liu (2023). Multi-agent path planning based on meta-agent conflict merge se..."
+    },
+    {
+      "id": 9,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "L. Pallottino, V.G. Scordio, E. Frazzoli (None). Probabilistic verification of a decentralized polic..."
+    },
+    {
+      "id": 10,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Leonardo Moreira, C\u00e9lia Ralha (2021). Plan Recovery Process in Multi-agent Dynamic Environments. Cro..."
+    },
+    {
+      "id": 11,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Leonardo Moreira, C\u00e9lia Ralha (2021). Plan Recovery Process in Multi-agent Dynamic Environments. Cro..."
+    },
+    {
+      "id": 12,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (None). Negotiation and Conflict Resolution. CrossRef. https://doi.org/10.4324/9780203305607..."
+    },
+    {
+      "id": 13,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": ", Na Zhang (None). Collision risk modeling and resolution path planning for uav conflict management ..."
+    },
+    {
+      "id": 14,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (2023). Peer Review #2 of \"Multi-user conflict resolution mechanisms for smart home environm..."
+    },
+    {
+      "id": 15,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (2023). Peer Review #2 of \"Multi-user conflict resolution mechanisms for smart home environm..."
+    },
+    {
+      "id": 16,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Catholijn M. Jonker, Jan Treur, Wieke de Vries (2002). Reuse and Abstraction in Verification: Agents..."
+    },
+    {
+      "id": 17,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Riccardo De Masellis, Valentin Goranko (2020). Logic-based specification and verification of homogen..."
+    },
+    {
+      "id": 18,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "H. Yamaki, M. Fujii, K. Nakatsuka (None). A Dynamic Programming Approach to Automated Trust Negotiat..."
+    },
+    {
+      "id": 19,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Frances M. T. Brazier, Frank Cornelissen, Rune Gustavsson (2002). Compositional Verification of a Mu..."
+    },
+    {
+      "id": 20,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Manouchehr Zadahmad Jafarlou, Eugene Syriani (2025). Domain-Specific Conflict Resolution and Model M..."
+    },
+    {
+      "id": 21,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Sachiyo Arai, Katia Sycara (2000). Multi-agent reinforcement learning for planning and conflict reso..."
+    },
+    {
+      "id": 22,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Wamberto W. Vasconcelos, Martin J. Kollingbaum, Timothy J. Norman (2008). Normative conflict resolut..."
+    },
+    {
+      "id": 23,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Mohadese Basirati (None). Zoning management in marine spatial planning : multi-objective optimizatio..."
+    },
+    {
+      "id": 24,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (2023). Peer Review #1 of \"Multi-user conflict resolution mechanisms for smart home environm..."
+    },
+    {
+      "id": 25,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Unknown (2023). Peer Review #1 of \"Multi-user conflict resolution mechanisms for smart home environm..."
+    },
+    {
+      "id": 26,
+      "domain_score": 0.02,
+      "is_irrelevant": false,
+      "text": "Yaroslav Vykliuk, Roman Kolodii (2026). Method of Iterative Multi-Agent Verification of Grades in Vi..."
+    },
+    {
+      "id": 27,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Alessandro Ricci, Mirko Viroli, Andrea Omicini (None). The A&amp;A Programming Model and Technology ..."
+    },
+    {
+      "id": 28,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Alexander Helleboogh, Giuseppe Vizzari, Adelinde Uhrmacher (2006). Modeling dynamic environments in ..."
+    },
+    {
+      "id": 29,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Achraf Ballari, Mohamed Assellaou, Omar Souissi (2026). MASDA: A Multi-Agent System with Dynamic Pla..."
+    },
+    {
+      "id": 30,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Prageeth M. Gunathilaka, Asoka S. Karunananda (2013). Exploiting Bulk Agent Approach for Conflict Re..."
+    },
+    {
+      "id": 31,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Vignesh Iyer (2026). Policy Conflict Cascades in Multi-Agent Runtime Governance: A Taxonomy, Resolut..."
+    },
+    {
+      "id": 32,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Alaa Abdulghafoor, Efstathios Bakolas (2022). Multi-Agent Distributed Optimal Control for Tracking L..."
+    },
+    {
+      "id": 33,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "David E. Guinn (2019). Working in Conflict/Post-Conflict Environments: Exploring How Context Shapes ..."
+    },
+    {
+      "id": 34,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Rafael H. Bordini, Louise A. Dennis, Berndt Farwer (2008). Automated Verification of Multi-Agent Pro..."
+    },
+    {
+      "id": 35,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Pantaleon Fassbender (2026). Simulating Ideological Deadlock: Persona Stability and Conflict Resolut..."
+    },
+    {
+      "id": 36,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Alaa Abdulghafoor, Efstathios Bakolas (2022). Multi-Agent Distributed Optimal Control for Tracking L..."
+    },
+    {
+      "id": 37,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "N. O. Garanina, E. A. Sidorova, I. S. Anureev (2016). Conflict resolution in multi-agent systems wit..."
+    },
+    {
+      "id": 38,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Paulo Novais, Davide Carneiro, Marco Gomes (2012). Non-invasive Estimation of Stress in Conflict Res..."
+    },
+    {
+      "id": 39,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "Guang Yang, Peter Trinh (2025). VeryNews: A Multi-Agent System for Automated News Authenticity Verif..."
+    },
+    {
+      "id": 40,
+      "domain_score": 0.0,
+      "is_irrelevant": false,
+      "text": "M. Birna van Riemsdijk, Mehdi Dastani, John-Jules Ch. Meyer (2008). Goals in conflict: semantic foun..."
+    }
+  ],
+  "details": []
+}

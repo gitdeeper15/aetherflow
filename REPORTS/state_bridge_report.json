@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-11-05T11:42:27.022389",
+  "project": "/storage/emulated/0/Download/GITDEEPER_LAB_ZERO_V6/PROJECTS/EXPERIMENTAL/AetherFlow",
+  "current_stage": "EXPERIMENTAL",
+  "new_stage": "EXPERIMENTAL",
+  "composite_score": 57.25,
+  "action": "REJECT",
+  "scope": "BLOCKED",
+  "zone": "INVALID",
+  "confidence": 0.1,
+  "review_required": true,
+  "signals": {
+    "truth_score": 85.0,
+    "calibrated": 85.0,
+    "audit_score": 42.0,
+    "agents_score": 0.0,
+    "human_approval": false,
+    "archive_signal": false,
+    "days_inactive": 0.0,
+    "data_source": "SQLite (lab_data.db)"
+  }
+}

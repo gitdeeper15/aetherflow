@@ -1,0 +1,81 @@
+{
+  "manifest_version": "1.0",
+  "project": {
+    "name": "AetherFlow",
+    "full_title": "AetherFlow: Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments",
+    "version": "1.0.0",
+    "type": "research_paper",
+    "status": "formalization_stage",
+    "release_date": "2026-11-05",
+    "language": "en",
+    "doi": "10.5281/zenodo.23979129",
+    "doi_url": "https://doi.org/10.5281/zenodo.23979129"
+  },
+  "author": {
+    "name": "Samir Baladi",
+    "role": "Interdisciplinary AI Researcher",
+    "affiliation": "Ronin Institute / Rite of Renaissance",
+    "email": "gitdeeper@gmail.com",
+    "orcid": "0009-0003-8903-0029"
+  },
+  "formal_definitions": [
+    {
+      "id": "D1",
+      "name": "Dynamic Conflict Window",
+      "statement": "W(c_i, c_j) = 1 − exp(−κ·O·e^(−τ/θ))",
+      "status": "defined"
+    },
+    {
+      "id": "D2",
+      "name": "Post-Merge Verification Operator",
+      "statement": "V(c) = ⊕_V(δ_i, {V(p)}, CI(c_i)) — three-valued: verified, failed, tainted",
+      "status": "defined"
+    },
+    {
+      "id": "D3",
+      "name": "Auto-Remediation Bound",
+      "statement": "P(Remediation) ≥ 1 − (λ_fail/μ_remediate)^K · e^(−γ·T_react)",
+      "status": "defined"
+    }
+  ],
+  "propositions": [
+    {
+      "id": "P1",
+      "name": "Admission Independence",
+      "statement": "Admission latency is independent of CI duration",
+      "status": "proven"
+    },
+    {
+      "id": "P2",
+      "name": "Monotonicity of Conflict Window",
+      "statement": "W is decreasing in τ and increasing in overlap",
+      "status": "proven"
+    },
+    {
+      "id": "P3",
+      "name": "Minimum Tier Depth",
+      "statement": "K ≥ (ln(1/ε) − γT) / ln(1/ρ)",
+      "status": "proven"
+    }
+  ],
+  "architectural_pillars": [
+    "Lock-Free Merge Entry",
+    "Post-Merge Verification Layer",
+    "Proactive Remediation Agents"
+  ],
+  "links": {
+    "github": "https://github.com/gitdeeper15/aetherflow",
+    "gitlab": "https://gitlab.com/gitdeeper15/aetherflow",
+    "codeberg": "https://codeberg.org/gitdeeper15/aetherflow",
+    "bitbucket": "https://bitbucket.org/gitdeeper15/aetherflow",
+    "pypi": "https://pypi.org/project/aetherflow/",
+    "zenodo": "https://doi.org/10.5281/zenodo.23979129",
+    "website": "https://aetherflow-site.netlify.app",
+    "osf": "https://osf.io/8k5gx",
+    "osf_doi": "10.17605/OSF.IO/92Y3W"
+  },
+  "license": {
+    "code": "MIT",
+    "manuscript_figures_documentation": "CC-BY-4.0"
+  }
+}

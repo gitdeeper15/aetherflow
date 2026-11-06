@@ -1,7 +1,7 @@
 # AetherFlow — Complete Inventory
 
-**Version:** 1.0.0 (manuscript revision)
-**Release Date:** 2026-11-05
+**Version:** 2.0.0
+**Release Date:** 2026-11-06
 **Author:** Samir Baladi
 **Email:** gitdeeper@gmail.com
 **ORCID:** [0009-0003-8903-0029](https://orcid.org/0009-0003-8903-0029)

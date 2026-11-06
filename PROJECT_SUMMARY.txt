@@ -7,8 +7,8 @@ DOI URL: https://doi.org/10.5281/zenodo.23979129
 DOI (OSF): 10.17605/OSF.IO/92Y3W
 OSF URL: https://doi.org/10.17605/OSF.IO/92Y3W
 Stage: FORMALIZATION
-Version: 1.0.0 (manuscript revision, not software release)
-Date: 2026-11-05
+Version: 2.0.0 (manuscript) / 0.1.0a1 (PyPI)
+Date: 2026-11-06
 
 Formal Definitions: 3
   - Definition 1: Dynamic Conflict Window (W)

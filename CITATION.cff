@@ -2,8 +2,8 @@ cff-version: 1.2.0
 title: "AetherFlow: Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments"
 message: "If you use this research, data, or code, please cite as below."
 type: report
-version: "1.0.0"
-date-released: "2026-11-05"
+version: "2.0.0"
+date-released: "2026-11-06"
 license: MIT
 abstract: |
   AetherFlow is a formal architecture that replaces pre-merge gating
@@ -71,7 +71,7 @@ references:
       - family-names: "Baladi"
         given-names: "Samir"
         orcid: "https://orcid.org/0009-0003-8903-0029"
-    version: "1.0.0"
+    version: "2.0.0"
     date-released: "2026"
     doi: "10.5281/zenodo.23966896"
     url: "https://doi.org/10.5281/zenodo.23966896"
@@ -81,7 +81,7 @@ references:
       - family-names: "Baladi"
         given-names: "Samir"
         orcid: "https://orcid.org/0009-0003-8903-0029"
-    version: "1.0.0"
+    version: "2.0.0"
     date-released: "2026"
     doi: "10.5281/zenodo.23934465"
     url: "https://doi.org/10.5281/zenodo.23934465"

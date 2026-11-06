@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AetherFlow — Dashboard</title>
+    <style>
+        :root {
+            --paper: #f0f4f8;
+            --ink: #0f1b2d;
+            --ink-soft: #4a5a6e;
+            --line: #c8d4e0;
+            --accent: #1e3a5f;
+            --accent-light: #4a7ba7;
+            --code-bg: #e3eaf2;
+            --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+            --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            --maxw: 820px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 18px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            border-bottom: 1px solid var(--line);
+            background: var(--paper);
+        }
+        .nav-container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a.active {
+            color: var(--ink);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        /* ---------- Main ---------- */
+        main {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 2.5rem;
+        }
+        .hero .badge {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-soft);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        .hero .subtitle {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            margin-bottom: 2.5rem;
+        }
+        section h3 {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--line);
+        }
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- Stats ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat .num {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .stat .label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-soft);
+            margin-top: 0.3rem;
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        th, td {
+            padding: 0.55rem 0.4rem;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        th {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+
+        /* ---------- Code ---------- */
+        pre {
+            background: var(--code-bg);
+            padding: 1rem 1.15rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            line-height: 1.65;
+            border-left: 3px solid var(--accent);
+        }
+        code {
+            font-family: var(--mono);
+        }
+        p code, li code, td code {
+            background: var(--code-bg);
+            padding: 0.08rem 0.35rem;
+            font-size: 0.88em;
+        }
+
+        /* ---------- Links ---------- */
+        a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        a:hover { color: var(--accent-light); }
+
+        /* ---------- Lists ---------- */
+        ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+        li { margin: 0.25rem 0; }
+
+        /* ---------- Note box ---------- */
+        .note {
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem 1rem;
+            background: var(--code-bg);
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            margin: 1.25rem 0;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            border-top: 1px solid var(--line);
+            background: #1a2a40;
+            color: #e8eef5;
+            padding: 2.5rem 1.5rem 1rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .footer-container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .footer-brand p {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: #a8bcd4;
+            line-height: 1.6;
+        }
+        .footer-section h3 {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8a9eb8;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-section li {
+            margin: 0.3rem 0;
+        }
+        .footer-section a {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: #e8eef5;
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding-top: 1rem;
+            border-top: 1px solid #1e3a5f;
+            text-align: left;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: #8a9eb8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .footer-bottom a {
+            color: #a8bcd4;
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: #ffffff;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 680px) {
+            body { font-size: 16px; }
+            .nav-links { display: none; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2rem; }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Aether<span>Flow</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <span class="badge">Research Status · v1.0.0 · Formalization Stage</span>
+            <h1>Dashboard</h1>
+            <p class="subtitle">Research status and scientific maturity</p>
+            <p>No empirical data has been collected. This dashboard reports the status of the research protocol, not findings.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Formal Definitions</div>
+            </div>
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Propositions</div>
+            </div>
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Architectural Pillars</div>
+            </div>
+            <div class="stat">
+                <div class="num">0</div>
+                <div class="label">Empirical Results</div>
+            </div>
+        </div>
+
+        <section>
+            <h3>Foundational Documents</h3>
+            <table>
+                <tr><th>Document</th><th>Version</th><th>Status</th></tr>
+                <tr><td>Formalization Section</td><td>1.0.0</td><td>Defined</td></tr>
+                <tr><td>Architecture</td><td>1.0.0</td><td>Specified</td></tr>
+                <tr><td>Conflict Window</td><td>1.0.0</td><td>Defined</td></tr>
+                <tr><td>Evaluation</td><td>1.0.0</td><td>Specified</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Scientific Maturity</h3>
+            <table>
+                <tr><th>Indicator</th><th>Status</th><th>Notes</th></tr>
+                <tr><td>Research problem</td><td>Specified</td><td>Agentic workload bottlenecks</td></tr>
+                <tr><td>Central question</td><td>Specified</td><td>Architectural + formal changes</td></tr>
+                <tr><td>Formal definitions</td><td>Defined</td><td>3 definitions</td></tr>
+                <tr><td>Propositions</td><td>Proven</td><td>3 propositions</td></tr>
+                <tr><td>Architectural pillars</td><td>Specified</td><td>3 pillars</td></tr>
+                <tr><td>Literature review</td><td>Pending</td><td>Git, Piper, Sapling, Scion</td></tr>
+                <tr><td>Empirical work</td><td>Not performed</td><td>No data collected</td></tr>
+                <tr><td>Causal claims</td><td>None</td><td>Formal analysis only</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Publication Status</h3>
+            <table>
+                <tr><th>Venue</th><th>Status</th></tr>
+                <tr><td>Zenodo</td><td>10.5281/zenodo.23979129</td></tr>
+                <tr><td>Figshare</td><td>Pending</td></tr>
+                <tr><td>OSF</td><td>Pending</td></tr>
+                <tr><td>GitHub</td><td>github.com/gitdeeper15/aetherflow</td></tr>
+                <tr><td>GitLab</td><td>gitlab.com/gitdeeper15/aetherflow</td></tr>
+                <tr><td>Codeberg</td><td>codeberg.org/gitdeeper15/aetherflow</td></tr>
+                <tr><td>Bitbucket</td><td>bitbucket.org/gitdeeper15/aetherflow</td></tr>
+                <tr><td>PyPI</td><td>pypi.org/project/aetherflow</td></tr>
+                <tr><td>Netlify</td><td>aetherflow-site.netlify.app</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Structural Counts</h3>
+            <table>
+                <tr><th>Category</th><th>Count</th></tr>
+                <tr><td>Formal Definitions</td><td>3</td></tr>
+                <tr><td>Propositions</td><td>3</td></tr>
+                <tr><td>Architectural Pillars</td><td>3</td></tr>
+                <tr><td>Figures</td><td>4</td></tr>
+                <tr><td>References</td><td>17</td></tr>
+                <tr><td>Empirical Results</td><td>0</td></tr>
+                <tr><td>Causal Claims</td><td>0</td></tr>
+            </table>
+        </section>
+
+        <div class="note">
+            <strong>Status note:</strong> No empirical work has been performed under this protocol. The three formal definitions, three propositions, and three architectural pillars are analytical proposals, not empirically validated categories.
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>AetherFlow</h3>
+                <p>Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments. A formal architecture for lock-free integration and proactive remediation.</p>
+                <p style="margin-top: 1rem; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Version 1.0.0 · November 2026</p>
+                <p style="margin-top: 0.25rem;"><a href="https://orcid.org/0009-0003-8903-0029">ORCID: 0009-0003-8903-0029</a></p>
+                <p style="margin-top: 0.25rem;"><a href="mailto:gitdeeper@gmail.com">gitdeeper@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Code Repositories</h3>
+                <ul>
+                    <li><a href="https://github.com/gitdeeper15/aetherflow">GitHub (Primary)</a></li>
+                    <li><a href="https://gitlab.com/gitdeeper15/aetherflow">GitLab</a></li>
+                    <li><a href="https://codeberg.org/gitdeeper15/aetherflow">Codeberg</a></li>
+                    <li><a href="https://bitbucket.org/gitdeeper15/aetherflow">Bitbucket</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://doi.org/10.5281/zenodo.23979129">Zenodo DOI</a></li>
+                    <li><a href="https://doi.org/10.17605/OSF.IO/92Y3W">OSF Registration</a></li>
+                    <li><a href="https://doi.org/10.6084/m9.figshare.92Y3W">Figshare Archive</a></li>
+                    <li><a href="https://orcid.org/0009-0003-8903-0029">ORCID Profile</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© AetherFlow 2026 | All rights reserved</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://github.com/gitdeeper15/aetherflow">GitHub</a> ·
+                <a href="https://gitlab.com/gitdeeper15/aetherflow">GitLab</a> ·
+                <a href="https://orcid.org/0009-0003-8903-0029">ORCID</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

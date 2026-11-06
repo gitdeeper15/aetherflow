@@ -1,0 +1,87 @@
+cff-version: 1.2.0
+title: "AetherFlow: Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments"
+message: "If you use this research, data, or code, please cite as below."
+type: report
+version: "1.0.0"
+date-released: "2026-11-05"
+license: MIT
+abstract: |
+  AetherFlow is a formal architecture that replaces pre-merge gating
+  with three composable mechanisms: (i) lock-free merge entry, in
+  which changesets are appended to the trunk log without waiting for
+  verification; (ii) asynchronous post-merge verification, computed by
+  a recursive operator that attributes failures to the changeset that
+  introduced them and marks descendants as tainted rather than failed;
+  and (iii) proactive remediation by agents under a graded escalation
+  policy.
+
+  Three definitions are given: a dynamic conflict window W(c_i, c_j);
+  the recursive verification operator ⊕_V; and a bound
+  P(Remediation) ≥ 1 − (λ_fail/μ_remediate)^K · e^(−γ·T_react).
+
+  Three propositions are proven: admission independence, monotonicity
+  of the conflict window, and a closed-form minimum tier depth for any
+  target residual risk.
+
+  AetherFlow is the integration-layer complement to the AetherGit
+  storage architecture. The paper reports no implementation,
+  simulation, or benchmark.
+keywords:
+  - source control
+  - merge queues
+  - agentic software engineering
+  - post-merge verification
+  - auto-remediation
+  - conflict resolution
+  - distributed systems
+  - formal methods
+  - aetherflow
+authors:
+  - family-names: "Baladi"
+    given-names: "Samir"
+    email: "gitdeeper@gmail.com"
+    orcid: "https://orcid.org/0009-0003-8903-0029"
+    affiliation: "Ronin Institute / Rite of Renaissance"
+repository-code: "https://github.com/gitdeeper15/aetherflow"
+url: "https://aetherflow-site.netlify.app"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23979129"
+  - type: url
+    value: "https://doi.org/10.5281/zenodo.23979129"
+  - type: url
+    value: "https://github.com/gitdeeper15/aetherflow"
+  - type: url
+    value: "https://gitlab.com/gitdeeper15/aetherflow"
+  - type: url
+    value: "https://codeberg.org/gitdeeper15/aetherflow"
+  - type: url
+    value: "https://bitbucket.org/gitdeeper15/aetherflow"
+  - type: url
+    value: "https://aetherflow-site.netlify.app"
+  - type: doi
+    value: "10.17605/OSF.IO/92Y3W"
+  - type: url
+    value: "https://osf.io/8k5gx"
+
+references:
+  - type: software
+    title: "AetherGit: Scalable Source Control for Autonomous AI Agents"
+    authors:
+      - family-names: "Baladi"
+        given-names: "Samir"
+        orcid: "https://orcid.org/0009-0003-8903-0029"
+    version: "1.0.0"
+    date-released: "2026"
+    doi: "10.5281/zenodo.23966896"
+    url: "https://doi.org/10.5281/zenodo.23966896"
+  - type: software
+    title: "Rethinking Source Control for Agentic Software Engineering"
+    authors:
+      - family-names: "Baladi"
+        given-names: "Samir"
+        orcid: "https://orcid.org/0009-0003-8903-0029"
+    version: "1.0.0"
+    date-released: "2026"
+    doi: "10.5281/zenodo.23934465"
+    url: "https://doi.org/10.5281/zenodo.23934465"

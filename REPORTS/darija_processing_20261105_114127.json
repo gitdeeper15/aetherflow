@@ -1,0 +1,217 @@
+{
+  "text": "شنو كتدير؟ أنا مزيان بزاف، ولكن المشكل هو كيفاش نبداو. \n        هاد المشروع خاصو بزاف د الوقت، ولكن إن شاء الله غادي نكملوه. \n        The project is very important for Moroccan NLP.",
+  "chunks": [
+    {
+      "text": "شنو كتدير؟ أنا مزيان بزاف، ولكن المشكل هو كيفاش نبداو. \n        هاد المشروع خاصو بزاف د الوقت، ولكن إن شاء الله غادي نكملوه. \n        The project is very important for Moroccan NLP.",
+      "type": "paragraph",
+      "language": "mixed (Darija + French)",
+      "word_count": 30,
+      "char_count": 181
+    }
+  ],
+  "tokens": {
+    "tokens": [
+      {
+        "original": "شنو",
+        "clean": "شنو",
+        "type": "darija_special",
+        "is_special": true
+      },
+      {
+        "original": "كتدير؟",
+        "clean": "كتدير",
+        "type": "darija",
+        "is_special": false
+      },
+      {
+        "original": "أنا",
+        "clean": "أنا",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "مزيان",
+        "clean": "مزيان",
+        "type": "darija_special",
+        "is_special": true
+      },
+      {
+        "original": "بزاف،",
+        "clean": "بزاف،",
+        "type": "darija",
+        "is_special": false
+      },
+      {
+        "original": "ولكن",
+        "clean": "ولكن",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "المشكل",
+        "clean": "المشكل",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "هو",
+        "clean": "هو",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "كيفاش",
+        "clean": "كيفاش",
+        "type": "darija_special",
+        "is_special": true
+      },
+      {
+        "original": "نبداو.",
+        "clean": "نبداو",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "هاد",
+        "clean": "هاد",
+        "type": "darija_special",
+        "is_special": true
+      },
+      {
+        "original": "المشروع",
+        "clean": "المشروع",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "خاصو",
+        "clean": "خاصو",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "بزاف",
+        "clean": "بزاف",
+        "type": "darija_special",
+        "is_special": true
+      },
+      {
+        "original": "د",
+        "clean": "د",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "الوقت،",
+        "clean": "الوقت،",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "ولكن",
+        "clean": "ولكن",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "إن",
+        "clean": "إن",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "شاء",
+        "clean": "شاء",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "الله",
+        "clean": "الله",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "غادي",
+        "clean": "غادي",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "نكملوه.",
+        "clean": "نكملوه",
+        "type": "arabic",
+        "is_special": false
+      },
+      {
+        "original": "The",
+        "clean": "The",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "project",
+        "clean": "project",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "is",
+        "clean": "is",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "very",
+        "clean": "very",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "important",
+        "clean": "important",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "for",
+        "clean": "for",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "Moroccan",
+        "clean": "Moroccan",
+        "type": "french",
+        "is_special": false
+      },
+      {
+        "original": "NLP.",
+        "clean": "NLP",
+        "type": "french",
+        "is_special": false
+      }
+    ],
+    "total_tokens": 30,
+    "unique_tokens": 29,
+    "language_distribution": {
+      "darija": 6.7,
+      "darija_special": 16.7,
+      "arabic": 50.0,
+      "french": 26.7,
+      "other": 0.0
+    }
+  },
+  "analysis": {
+    "word_count": 30,
+    "char_count": 181,
+    "patterns": {
+      "question": true,
+      "has_darija": true,
+      "has_arabic": true,
+      "has_french": true
+    },
+    "language_mix": "mixed (Darija + French)"
+  },
+  "timestamp": "2026-11-05T11:41:27.004477"
+}

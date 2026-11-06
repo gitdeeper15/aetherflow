@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aetherflow"
+version = "2.0.0"
+description = "Automated post-merge verification and dynamic conflict resolution in multi-agent programming environments"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Samir Baladi", email = "gitdeeper@gmail.com" }]
+keywords = [
+    "source control", "merge queues", "agentic software engineering",
+    "post-merge verification", "auto-remediation", "conflict resolution",
+    "distributed systems", "formal methods",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0", "pytest-cov>=4.0", "scikit-learn>=1.3",
+    "matplotlib>=3.7", "ruff>=0.1", "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/gitdeeper15/aetherflow"
+"Research Paper" = "https://doi.org/10.5281/zenodo.23979129"
+"OSF Registration" = "https://doi.org/10.17605/OSF.IO/92Y3W"
+
+[project.scripts]
+aetherflow = "aetherflow.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=aetherflow"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true

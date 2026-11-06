@@ -1,0 +1,18 @@
+{
+  "paper": "dpia_report.md",
+  "timestamp": "2026-11-05T11:41:26.220014",
+  "collaboration_level": {
+    "level": 3,
+    "description": "Automated Reviewer - Full automated review with human oversight"
+  },
+  "theoretical_verification": {},
+  "experimental_validation": {},
+  "suggestions": [
+    "Error: Could not read paper"
+  ],
+  "identified_flaws": [
+    "Paper reading failed"
+  ],
+  "overall_score": 0.0,
+  "summary": "Error: 'NoneType' object has no attribute 'strip'"
+}

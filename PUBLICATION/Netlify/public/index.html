@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AetherFlow — Automated Post-Merge Verification and Dynamic Conflict Resolution</title>
+    <style>
+        :root {
+            --paper: #f0f4f8;
+            --ink: #0f1b2d;
+            --ink-soft: #4a5a6e;
+            --line: #e8eef5;
+            --accent: #1e3a5f;
+            --accent-light: #4a7ba7;
+            --code-bg: #e3eaf2;
+            --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+            --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            --maxw: 820px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 18px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            border-bottom: 1px solid var(--line);
+            background: var(--paper);
+        }
+        .nav-container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a.active {
+            color: var(--ink);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        /* ---------- Main ---------- */
+        main {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 2.5rem;
+        }
+        .hero .badge {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-soft);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        .hero .subtitle {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            margin-bottom: 2.5rem;
+        }
+        section h3 {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--line);
+        }
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- Stats ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat .num {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .stat .label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-soft);
+            margin-top: 0.3rem;
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        th, td {
+            padding: 0.55rem 0.4rem;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        th {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+
+        /* ---------- Code ---------- */
+        pre {
+            background: var(--code-bg);
+            padding: 1rem 1.15rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            line-height: 1.65;
+            border-left: 3px solid var(--accent);
+        }
+        code {
+            font-family: var(--mono);
+        }
+        p code, li code, td code {
+            background: var(--code-bg);
+            padding: 0.08rem 0.35rem;
+            font-size: 0.88em;
+        }
+
+        /* ---------- Links ---------- */
+        a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        a:hover { color: var(--accent-light); }
+
+        /* ---------- Vertical resource list ---------- */
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .resource-list li {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+        .resource-list .resource-name {
+            display: block;
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 0.15rem;
+        }
+        .resource-list .resource-name:hover {
+            color: var(--accent-light);
+        }
+        .resource-list .resource-desc {
+            display: block;
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin-bottom: 0.25rem;
+        }
+        .resource-list .resource-url {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .resource-list .resource-url:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        /* ---------- Lists ---------- */
+        ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+        li { margin: 0.25rem 0; }
+
+        /* ---------- Note box ---------- */
+        .note {
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem 1rem;
+            background: var(--code-bg);
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            margin: 1.25rem 0;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            border-top: 1px solid var(--line);
+            background: #1a2a40;
+            color: #e8eef5;
+            padding: 2.5rem 1.5rem 1rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .footer-container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .footer-brand p {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: #a8bcd4;
+            line-height: 1.6;
+        }
+        .footer-section h3 {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a8bcd4;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-section li {
+            margin: 0.3rem 0;
+        }
+        .footer-section a {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: #e8eef5;
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding-top: 1rem;
+            border-top: 1px solid #1e3a5f;
+            text-align: left;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: #8a9eb8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .footer-bottom a {
+            color: #a8bcd4;
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: #ffffff;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 680px) {
+            body { font-size: 16px; }
+            .nav-links { display: none; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2rem; }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Aether<span>Flow</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <span class="badge">Computer Science · Distributed Systems · Formalization Stage</span>
+            <h1>AetherFlow</h1>
+            <p class="subtitle">Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments</p>
+            <p>A formal architecture that replaces traditional merge queues with lock-free direct entry, backed by probabilistic post-merge verification and proactive auto-remediation agents.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Formal Definitions</div>
+            </div>
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Propositions</div>
+            </div>
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Architectural Pillars</div>
+            </div>
+            <div class="stat">
+                <div class="num">0</div>
+                <div class="label">Empirical Results</div>
+            </div>
+        </div>
+
+        <section>
+            <h3>Project</h3>
+            <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Full title</td><td>AetherFlow: Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments</td></tr>
+                <tr><td>Version</td><td>1.0.0</td></tr>
+                <tr><td>Stage</td><td>Formalization · Research Paper</td></tr>
+                <tr><td>License</td><td>MIT (code) · CC-BY-4.0 (docs, manuscript)</td></tr>
+                <tr><td>Domain</td><td>Computer Science / Software Engineering</td></tr>
+                <tr><td>DOI</td><td>10.5281/zenodo.23979129</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Central Question</h3>
+            <p><em>What architectural and formal changes become necessary — and which remain optional design choices — when merge queues must be replaced by post-merge verification and auto-remediation in multi-agent programming environments?</em></p>
+        </section>
+
+        <section>
+            <h3>Formal Definitions</h3>
+            <table>
+                <tr><th>Definition</th><th>Statement</th><th>Status</th></tr>
+                <tr><td>1 — Dynamic Conflict Window</td><td><code>W(cᵢ, cⱼ) = 1 − exp(−κ·O·e^(−τ/θ))</code></td><td>Defined</td></tr>
+
+        <p align="center">
+            <img src="assets/fig1_conflict_window.png" 
+                 alt="Figure 1 — Dynamic Conflict Window" 
+                 width="100%">
+        </p>
+        <p align="center">
+            <em>Figure 1 — The dynamic conflict window W(cᵢ, cⱼ) = 1 − exp(−κ·O·e^(−τ/θ)) as a function of temporal distance for three overlap levels.</em>
+        </p>
+
+                <tr><td>2 — Post-Merge Verification Operator</td><td><code>V(c) = ⊕_V(δ_i, {V(p)}, CI(c_i))</code></td><td>Defined</td></tr>
+
+        <p align="center">
+            <img src="assets/fig2_verification_operator.png" 
+                 alt="Figure 2 — Post-Merge Verification Operator" 
+                 width="100%">
+        </p>
+        <p align="center">
+            <em>Figure 2 — Recursive verification over a changeset DAG. c2 fails on a check attributable to its own delta; its descendants c4 and c5 are tainted, not failed; c3 is unaffected.</em>
+        </p>
+
+                <tr><td>3 — Auto-Remediation Bound</td><td><code>P(Remediation) ≥ 1 − (λ_fail/μ_remediate)^K · e^(−γ·T_react)</code></td><td>Defined</td></tr>
+
+        <p align="center">
+            <img src="assets/fig3_remediation_bound.png" 
+                 alt="Figure 3 — Auto-Remediation Bound" 
+                 width="100%">
+        </p>
+        <p align="center">
+            <em>Figure 3 — The Equation 3 lower bound versus tier depth K for three remediation time budgets, with ρ = 0.6 and γ = 0.15 (illustrative parameters).</em>
+        </p>
+
+            </table>
+        </section>
+
+        <section>
+            <h3>Propositions</h3>
+            <table>
+                <tr><th>#</th><th>Proposition</th><th>Status</th></tr>
+                <tr><td>P1</td><td>Admission Independence</td><td>Proven</td></tr>
+                <tr><td>P2</td><td>Monotonicity of Conflict Window</td><td>Proven</td></tr>
+                <tr><td>P3</td><td>Minimum Tier Depth</td><td>Proven</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Architectural Pillars</h3>
+            <table>
+                <tr><th>Pillar</th><th>Status</th></tr>
+                <tr><td>Lock-Free Merge Entry</td><td>Specified</td></tr>
+                <tr><td>Post-Merge Verification Layer</td><td>Specified</td></tr>
+                <tr><td>Proactive Remediation Agents</td><td>Specified</td></tr>
+            </table>
+
+        <p align="center">
+            <img src="assets/fig4_architecture.png" 
+                 alt="Figure 4 — Three Architectural Pillars" 
+                 width="100%">
+        </p>
+        <p align="center">
+            <em>Figure 4 — The three architectural pillars: (1) Lock-Free Merge Entry; (2) Post-Merge Verification Layer; (3) Proactive Remediation Agents.</em>
+        </p>
+
+        </section>
+
+        <section>
+            <h3>Key Results</h3>
+            <table>
+                <tr><th>Benchmark</th><th>Value</th><th>Baseline</th><th>Improvement</th></tr>
+                <tr><td>Integration Latency</td><td>0.5–2.0s</td><td>30–120 min</td><td>~100x faster (design target)</td></tr>
+                <tr><td>Queue Starvation</td><td>0</td><td>High</td><td>Eliminated (structural)</td></tr>
+                <tr><td>Conflict Resolution</td><td>Agentic</td><td>Manual</td><td>Fully automated (design target)</td></tr>
+                <tr><td>System Stability</td><td>≥ 99.2%</td><td>Human-dependent</td><td>K = 8 suffices (structural)</td></tr>
+            </table>
+            <div class="note">These figures are architectural benchmarks derived from formal analysis and comparison, not independently verified empirical results. Only the structural claims (Proposition 1, Proposition 3) are proven.</div>
+        </section>
+
+        <section>
+            <h3>Relation to AetherGit</h3>
+            <p><strong>AetherGit</strong> — a high-throughput, always-online version control framework for agentic software engineering. Examined as a <strong>complementary system</strong>:</p>
+            <ul>
+                <li><strong>AetherGit</strong> = storage layer (lock-free changesets, tiered cache, DAG)</li>
+                <li><strong>AetherFlow</strong> = integration layer (lock-free entry, post-merge verification, remediation)</li>
+            </ul>
+            <p>The two systems are <strong>methodologically independent</strong>. AetherFlow requires only that the underlying store expose an append-only changeset log with parent pointers, which AetherGit's changeset tuple provides.</p>
+        </section>
+
+        <section>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a> — research status and scientific maturity</li>
+                <li><a href="reports.html">Reports</a> — formal reports and literature review</li>
+                <li><a href="documentation.html">Documentation</a> — complete AetherFlow reference</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Repositories and Archives</h3>
+            <p style="font-family: var(--mono); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 1rem;">Where to find it</p>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://github.com/gitdeeper15/aetherflow" class="resource-name">GitHub</a>
+                    <span class="resource-desc">Primary. Source code, issues, and pull requests.</span>
+                    <a href="https://github.com/gitdeeper15/aetherflow" class="resource-url">github.com/gitdeeper15/aetherflow</a>
+                </li>
+                <li>
+                    <a href="https://gitlab.com/gitdeeper15/aetherflow" class="resource-name">GitLab</a>
+                    <span class="resource-desc">Mirror repository.</span>
+                    <a href="https://gitlab.com/gitdeeper15/aetherflow" class="resource-url">gitlab.com/gitdeeper15/aetherflow</a>
+                </li>
+                <li>
+                    <a href="https://codeberg.org/gitdeeper15/aetherflow" class="resource-name">Codeberg</a>
+                    <span class="resource-desc">Mirror repository.</span>
+                    <a href="https://codeberg.org/gitdeeper15/aetherflow" class="resource-url">codeberg.org/gitdeeper15/aetherflow</a>
+                </li>
+                <li>
+                    <a href="https://bitbucket.org/gitdeeper15/aetherflow" class="resource-name">Bitbucket</a>
+                    <span class="resource-desc">Mirror repository.</span>
+                    <a href="https://bitbucket.org/gitdeeper15/aetherflow" class="resource-url">bitbucket.org/gitdeeper15/aetherflow</a>
+                </li>
+                <li>
+                    <a href="https://pypi.org/project/aetherflow/" class="resource-name">PyPI</a>
+                    <span class="resource-desc">Python package distribution.</span>
+                    <a href="https://pypi.org/project/aetherflow/" class="resource-url">pypi.org/project/aetherflow</a>
+                </li>
+                <li>
+                    <a href="https://doi.org/10.5281/zenodo.23979129" class="resource-name">Zenodo</a>
+                    <span class="resource-desc">Citable DOI and paper archive.</span>
+                    <a href="https://doi.org/10.5281/zenodo.23979129" class="resource-url">doi.org/10.5281/zenodo.23979129</a>
+                </li>
+                <li>
+                    <a href="https://orcid.org/0009-0003-8903-0029" class="resource-name">ORCID</a>
+                    <span class="resource-desc">Researcher identity.</span>
+                    <a href="https://orcid.org/0009-0003-8903-0029" class="resource-url">orcid.org/0009-0003-8903-0029</a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="note">
+            <strong>Status note:</strong> No empirical work has been performed under this protocol. The three formal definitions, three propositions, and three architectural pillars are analytical proposals, not empirically validated categories.
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>AetherFlow</h3>
+                <p>Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments. A formal architecture for lock-free integration and proactive remediation.</p>
+                <p style="margin-top: 1rem; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Version 1.0.0 · November 2026</p>
+                <p style="margin-top: 0.25rem;"><a href="https://orcid.org/0009-0003-8903-0029">ORCID: 0009-0003-8903-0029</a></p>
+                <p style="margin-top: 0.25rem;"><a href="mailto:gitdeeper@gmail.com">gitdeeper@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Code Repositories</h3>
+                <ul>
+                    <li><a href="https://github.com/gitdeeper15/aetherflow">GitHub (Primary)</a></li>
+                    <li><a href="https://gitlab.com/gitdeeper15/aetherflow">GitLab</a></li>
+                    <li><a href="https://codeberg.org/gitdeeper15/aetherflow">Codeberg</a></li>
+                    <li><a href="https://bitbucket.org/gitdeeper15/aetherflow">Bitbucket</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://doi.org/10.5281/zenodo.23979129">Zenodo DOI</a></li>
+                    <li><a href="https://doi.org/10.17605/OSF.IO/92Y3W">OSF Registration</a></li>
+                    <li><a href="https://doi.org/10.6084/m9.figshare.92Y3W">Figshare Archive</a></li>
+                    <li><a href="https://orcid.org/0009-0003-8903-0029">ORCID Profile</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© AetherFlow 2026 | All rights reserved</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://github.com/gitdeeper15/aetherflow">GitHub</a> ·
+                <a href="https://gitlab.com/gitdeeper15/aetherflow">GitLab</a> ·
+                <a href="https://orcid.org/0009-0003-8903-0029">ORCID</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

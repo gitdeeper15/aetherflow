@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-11-05T11:42:26.150710",
+  "project": "AetherFlow",
+  "domain": "computer_science",
+  "status": "SCORED",
+  "truth_score": 57.0,
+  "calibrated": 57.0,
+  "audit_score": 42.0,
+  "agents_score": 100.0,
+  "composite": 61.1,
+  "action": "ACCEPT",
+  "weights": {
+    "truth_score": 0.5,
+    "audit_score": 0.3,
+    "agents_score": 0.2
+  },
+  "heuristic": 57.0,
+  "llm": null,
+  "word_count": 860,
+  "ref_count": 40,
+  "entities": 17,
+  "integrity_violations": [],
+  "integrity_warnings": [],
+  "audit_breakdown": {
+    "A_data_present": {
+      "score": 60.0,
+      "weight": 0.4,
+      "detail": {
+        "data_dir_exists": true,
+        "files": [
+          {
+            "file": "input.json",
+            "size_kb": 0.1
+          }
+        ],
+        "score": 60.0
+      }
+    },
+    "B_data_used": {
+      "score": 0.0,
+      "weight": 0.3,
+      "detail": {
+        "report_exists": true,
+        "score": 0.0,
+        "total_entities": 17,
+        "updated_entities": 0,
+        "updated_list": []
+      }
+    },
+    "C_source_docs": {
+      "score": 40.0,
+      "weight": 0.2,
+      "detail": {
+        "paper_used": "research_paper_final.txt",
+        "hits": [
+          "ilo",
+          "https://"
+        ],
+        "score": 40.0
+      }
+    },
+    "D_consistency": {
+      "score": 100.0,
+      "weight": 0.1,
+      "detail": {
+        "score": 100.0,
+        "abstract_nums": 1,
+        "results_nums": 1,
+        "shared": 1
+      }
+    },
+    "structure_completeness_pct": 87.88
+  },
+  "audit_timestamp": "2026-11-05T11:42:24.906763"
+}

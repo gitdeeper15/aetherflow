@@ -1,0 +1,67 @@
+Project: AetherFlow
+Full Title: AetherFlow: Automated Post-Merge Verification and Dynamic Conflict Resolution in Multi-Agent Programming Environments
+Domain: Computer Science / Software Engineering
+Subdiscipline: Version Control Systems, Distributed Systems, Agentic Software Engineering
+DOI (Zenodo): 10.5281/zenodo.23979129
+DOI URL: https://doi.org/10.5281/zenodo.23979129
+DOI (OSF): 10.17605/OSF.IO/92Y3W
+OSF URL: https://doi.org/10.17605/OSF.IO/92Y3W
+Stage: FORMALIZATION
+Version: 1.0.0 (manuscript revision, not software release)
+Date: 2026-11-05
+
+Formal Definitions: 3
+  - Definition 1: Dynamic Conflict Window (W)
+  - Definition 2: Post-Merge Verification Operator (V) — three-valued
+  - Definition 3: Auto-Remediation Bound (P(Remediation))
+
+Propositions: 3 (all proven)
+  - Proposition 1: Admission Independence (admission cost O(|δ|), independent of CI duration s)
+  - Proposition 2: Monotonicity of Conflict Window
+  - Proposition 3: Minimum Tier Depth: K ≥ (ln(1/ε) − γ·T_react) / ln(1/ρ)
+
+Architectural Pillars: 3
+  - Lock-Free Merge Entry
+  - Post-Merge Verification Layer
+  - Proactive Remediation Agents
+
+Additional Design Elements:
+  - Verified-Head Discipline
+  - Three-Valued Verification (verified, failed, tainted)
+  - Graded Remediation Policy with Guardrails
+
+Key Structural Claims: 3
+  - Admission latency is independent of CI duration s (Proposition 1)
+  - Conflict window W is strictly decreasing in τ for O > 0, strictly increasing in O for finite τ (Proposition 2)
+  - Minimum tier depth K has a closed form for target residual risk ε (Proposition 3)
+
+Design Targets (not empirical results):
+  - Integration Latency: 0.5–2.0s (vs 30–120 min baseline) — ~100x faster
+  - Queue Starvation: 0
+  - Conflict Resolution: Fully automated (agentic)
+  - System Stability: P(Remediation) ≥ 99.2% with K = 8
+
+Empirical Evaluation: Not executed
+Implementation: Not built
+PyPI Package: Not published (planned post-empirical as 0.1.0a1)
+Causal Claims: None (formal analysis only)
+
+References: 17
+Appendix A: Notation
+Appendix B: Derivations
+
+Related Identifiers:
+  - AetherGit (companion, 2026b): 10.5281/zenodo.23966896
+  - Prior work (2026a): 10.5281/zenodo.23934465
+  - OSF Registration: 10.17605/OSF.IO/92Y3W
+
+Repositories:
+  - GitHub (primary): https://github.com/gitdeeper15/aetherflow
+  - GitLab (mirror): https://gitlab.com/gitdeeper15/aetherflow
+  - Codeberg (mirror): https://codeberg.org/gitdeeper15/aetherflow
+  - Bitbucket (mirror): https://bitbucket.org/gitdeeper15/aetherflow
+
+Author: Samir Baladi
+ORCID: 0009-0003-8903-0029
+Affiliation: Ronin Institute / Rite of Renaissance
+Email: gitdeeper@gmail.com

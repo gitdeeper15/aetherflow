@@ -1,0 +1,6 @@
+{
+  "n_jobs": 1000,
+  "fifo_mean_urgent_position": 497.5,
+  "adaptive_mean_urgent_position": 199.5,
+  "n_urgent": 400
+}

@@ -1,0 +1,14 @@
+:root {
+    --primary: hsl(201.0, 69.1%, 55.0%);
+    --secondary: hsl(241.0, 59.1%, 60.0%);
+    --accent: hsl(226.0, 69.1%, 63.0%);
+    --bg: hsl(0, 0%, 8%);
+    --surface: hsl(0, 0%, 12%);
+    --text: hsl(0, 0%, 88%);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: monospace;
+}

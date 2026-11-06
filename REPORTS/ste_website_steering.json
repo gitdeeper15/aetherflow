@@ -1,0 +1,36 @@
+{
+  "ste_enabled": true,
+  "paper_title": "Aetherflow",
+  "paper_keywords": [
+    "window",
+    "affiliation",
+    "november",
+    "verification",
+    "renaissance",
+    "aetherflow",
+    "workload",
+    "abstract",
+    "lock",
+    "form",
+    "post",
+    "agentic",
+    "bound",
+    "methodology",
+    "rite",
+    "institute",
+    "merge",
+    "following",
+    "baladi",
+    "governing"
+  ],
+  "paper_sections": [
+    "Introduction",
+    "Abstract",
+    "Methodology",
+    "Results",
+    "Discussion",
+    "Conclusion"
+  ],
+  "domain": "computer_science",
+  "consistency_target": 85
+}

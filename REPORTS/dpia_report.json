@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-11-05T11:39:13.784368",
+  "project": {
+    "name": "AetherFlow",
+    "domain": "computer_science",
+    "stage": "EXPERIMENTAL",
+    "truth_score": 85.0
+  },
+  "summary": {
+    "total_pii_found": 0,
+    "total_risks": 0,
+    "total_recommendations": 2,
+    "overall_risk_level": "LOW"
+  },
+  "pii_findings": [],
+  "risks": [],
+  "recommendations": [
+    {
+      "category": "DPIA",
+      "title": "Conduct formal Data Protection Impact Assessment",
+      "description": "Formal DPIA required due to PII processing and high-risk data",
+      "priority": "HIGH",
+      "action": "Complete the DPIA report and submit to data protection officer",
+      "related_agent": "gdpr_compliance"
+    },
+    {
+      "category": "DOCUMENTATION",
+      "title": "Update privacy documentation",
+      "description": "Privacy notice and data processing records need updating",
+      "priority": "MEDIUM",
+      "action": "Update README and documentation with privacy information",
+      "related_agent": "documentalist_agent"
+    }
+  ],
+  "compliance_status": {
+    "status": "FULLY_COMPLIANT",
+    "details": "No PII detected",
+    "pii_found": false
+  }
+}

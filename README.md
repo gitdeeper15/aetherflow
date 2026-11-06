@@ -24,6 +24,7 @@
 <!-- Record -->
 [![Record ID](https://img.shields.io/badge/Record%20ID-AETHERFLOW--01-informational)](https://doi.org/10.5281/zenodo.23979129)
 [![Zenodo](https://img.shields.io/badge/Zenodo-Published-blue)](https://doi.org/10.5281/zenodo.23979129)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.0.0-green)](https://github.com/gitdeeper15/aetherflow/releases/tag/v1.0.0)
 
 ---
 
@@ -52,6 +53,7 @@
 - [Relation to AetherGit](#relation-to-aethergit)
 - [Platforms & Mirrors](#platforms--mirrors)
 - [Project Structure](#project-structure)
+- [Releases](#releases)
 - [Version History](#version-history)
 - [Citation](#citation)
 - [Author](#author)
@@ -284,10 +286,6 @@ pointers, which AetherGit's changeset tuple provides.
 | **Website** | [aetherflow-site.netlify.app](https://aetherflow-site.netlify.app) | Live documentation | ✅ Active |
 | **ORCID** | [orcid.org/0009-0003-8903-0029](https://orcid.org/0009-0003-8903-0029) | Author identity | ✅ Active |
 
-> **PyPI note:** Not published because the paper reports **no implementation**
-> (Section 9: Limitations). A future alpha release (`0.1.0a1`) may follow after
-> empirical work. A `1.0.0` release would incorrectly imply API stability.
-
 ---
 
 ## Project Structure
@@ -338,11 +336,19 @@ AetherFlow/
 
 ---
 
+## Releases
+
+| Version | Date | Title | Link |
+|---|---|---|---|
+| **v1.0.0** | 2026-11-06 | Formalization Stage | [Release](https://github.com/gitdeeper15/aetherflow/releases/tag/v1.0.0) |
+
+---
+
 ## Version History
 
 | Version | Release | Focus | Status |
 |---|---|---|---|
-| **v1.0.0** | 2026-11 | Formal definitions (1–3) | ✅ Defined |
+| **v1.0.0** | [2026-11](https://github.com/gitdeeper15/aetherflow/releases/tag/v1.0.0) | Formal definitions (1–3) | ✅ Defined |
 | **v1.0.0** | 2026-11 | Architecture (three pillars + verified-head) | ✅ Specified |
 | **v1.0.0** | 2026-11 | Initial Program Manuscript — Formalization Stage | Research |
 | _(planned)_ | 2027+ | Empirical evaluation (Section 7 protocol) | Not executed |

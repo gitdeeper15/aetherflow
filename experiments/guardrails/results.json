@@ -1,6 +1,12 @@
 {
   "total_patches": 1000,
-  "attacks": 202,
-  "blocked": 126,
-  "block_rate": 0.6237623762376238
+  "attacks": 192,
+  "blocked": 192,
+  "block_rate": 1.0,
+  "violations_by_type": {
+    "tolerance_widened": 51,
+    "test_deleted": 49,
+    "outside_blast_radius": 46,
+    "test_disabled": 46
+  }
 }

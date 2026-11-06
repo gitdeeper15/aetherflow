@@ -326,15 +326,12 @@ AetherFlow/
 
 | Version | Release | Focus | Status |
 |---|---|---|---|
-| **v1.0.0** | 2026-11 | Formal definitions (1–3) | ✅ Defined |
-| **v1.0.0** | 2026-11 | Architecture (three pillars + verified-head) | ✅ Specified |
-| **v1.0.0** | 2026-11 | Initial Program Manuscript — Formalization Stage | Research |
-| _(planned)_ | 2027+ | Empirical evaluation (Section 7 protocol) | Not executed |
+| **v2.0.0** | 2026-11 | Empirical implementation + 5 experiments | ✅ Implemented |
+| **v1.0.0** | 2026-11 | Formalization (3 definitions, 3 propositions) | ✅ Defined |
+| _(planned)_ | 2027+ | Real-world deployment + benchmarking | Not executed |
 
-> **Status note:** No empirical or analytical examination of specific systems
-> has been undertaken. The three formal definitions, three architectural
-> pillars, and probabilistic bounds are **analytical proposals, not empirically
-> validated categories**.
+> **v2.0.0**: Reference implementation with 24 tests (98% coverage) and 5 experiments.
+> Results are preliminary; see `REPORTS/v2.0.0/report.md` for details.
 
 ---
 

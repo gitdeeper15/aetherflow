@@ -8,11 +8,37 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23979129.svg)](https://doi.org/10.5281/zenodo.23979129)
 [![License: MIT + CC-BY-4.0](https://img.shields.io/badge/License-MIT%20%2B%20CC--BY--4.0-crimson.svg)](LICENSE)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0003--8903--0029-a6ce39)](https://orcid.org/0009-0003-8903-0029)
+
+<!-- PyPI -->
+[![PyPI version](https://img.shields.io/pypi/v/aetherflow?color=gold&label=PyPI)](https://pypi.org/project/aetherflow/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/aetherflow?color=gold&label=Downloads)](https://pypi.org/project/aetherflow/)
+[![PyPI status](https://img.shields.io/pypi/status/aetherflow?color=gold)](https://pypi.org/project/aetherflow/)
+
+<!-- OSF -->
+[![OSF Preregistration](https://img.shields.io/badge/OSF-Preregistration-blueviolet)](https://doi.org/10.17605/OSF.IO/92Y3W)
+[![OSF Project](https://img.shields.io/badge/OSF-Project-blueviolet)](https://osf.io/92y3w)
+[![Registration DOI](https://img.shields.io/badge/Reg.%20DOI-10.17605%2FOSF.IO%2F92Y3W-blue)](https://doi.org/10.17605/OSF.IO/92Y3W)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+<!-- Stack -->
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://python.org)
 
-> ⚠️ **Status: Formalization Stage.** No implementation has been built and no
-> simulation or benchmark has been executed. All numerical values are labeled
-> as design targets, not measurements.
+<!-- Website -->
+[![Website](https://img.shields.io/badge/Website-aetherflow--site.netlify.app-success)](https://aetherflow-site.netlify.app)
+
+<!-- Release -->
+[![Record ID](https://img.shields.io/badge/Record%20ID-AETHERFLOW--01-informational)](https://doi.org/10.5281/zenodo.23979129)
+[![Zenodo](https://img.shields.io/badge/Zenodo-Published-blue)](https://doi.org/10.5281/zenodo.23979129)
+[![GitHub Release](https://img.shields.io/badge/Release-v2.0.0-green)](https://github.com/gitdeeper15/aetherflow/releases/tag/v2.0.0)
+
+---
+
+> ⚠️ **Status: v2.0.0 — Empirical Implementation.**
+>
+> The reference implementation is built and tested (24 tests, 98% coverage)
+> and 5 experiments have been executed. **No real-world deployment has been
+> evaluated.** All empirical results are preliminary. See
+> `REPORTS/v2.0.0/report.md` and Section 9 (Limitations) of the manuscript.
 
 ---
 
@@ -31,9 +57,10 @@
 - [Formal Definitions](#formal-definitions)
 - [Propositions](#propositions)
 - [Architectural Pillars](#architectural-pillars)
-- [Key Results](#key-results)
+- [Empirical Results (v2.0.0)](#empirical-results-v200)
 - [Relation to AetherGit](#relation-to-aethergit)
 - [Platforms & Mirrors](#platforms--mirrors)
+- [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Version History](#version-history)
 - [Citation](#citation)
@@ -58,6 +85,9 @@ developed in sequence and adopted individually:
 | 1 | **Dynamic Conflict Window** | 1.0.0 | ✅ Defined |
 | 2 | **Post-Merge Verification Operator** | 1.0.0 | ✅ Defined |
 | 3 | **Auto-Remediation Bound** | 1.0.0 | ✅ Defined |
+
+In **v2.0.0**, all three are implemented as Python modules with tests and
+experiments. The package is available on **PyPI** as `aetherflow`.
 
 <p align="center">
   <img src="figures/fig1_conflict_window.png" 
@@ -221,19 +251,19 @@ branch from the admission head.
 
 ---
 
-## Key Results
+## Empirical Results (v2.0.0)
 
-| Benchmark | Metric | Value | Baseline | Improvement |
-|---|---|---|---|---|
-| Integration Latency | Admission | `O(\|δ\|)` | Grows with queue depth (Eq. 5) | **Structural** (Prop. 1); magnitude untested |
-| Queue Starvation | Rate | 0 | Possible near ρ_q = 1 | **Eliminated** (structural) |
-| Conflict Resolution | Method | Agentic | Manual | **Design target** |
-| Remediation Success | P(Remediation) | ≥ 99.2% | Human-dependent | **K = 8 suffices** (design target; structural from Eq. 4) |
+| # | Experiment | Result |
+|---|------------|--------|
+| 1 | Conflict Window (Eq. 1a) | κ = 2.892, θ = 4.000, AUC = 0.894 |
+| 2 | Remediation Bound (Eq. 3) | K = 8 → P(Remediation) ≥ 1.0000 |
+| 3 | Attribution Accuracy | F1 = 1.000 (with mitigation) |
+| 4 | Guardrail Effectiveness | 100% block rate (192/192) |
+| 5 | Scheduler Simulation | 2.5× speedup vs FIFO |
 
-> **Status note:** The "~100x faster" and "≥99.2% success" figures are
-> **design targets, not results**. Only the structural claims (Proposition 1,
-> Proposition 3) are proven. Section 7 of the manuscript provides an
-> evaluation protocol to convert these targets into measured results.
+> **Status note:** Experiment 1 uses synthetic data (self-consistency test).
+> Experiments 2–5 use simulated logs. No real-world deployment has been evaluated.
+> See `REPORTS/v2.0.0/report.md` for full details.
 
 ---
 
@@ -249,8 +279,8 @@ The two systems are **methodologically independent**. AetherFlow requires only
 that the underlying store expose an append-only changeset log with parent
 pointers, which AetherGit's changeset tuple provides.
 
-- AetherGit DOI: [10.5281/zenodo.23966896](https://doi.org/10.5281/zenodo.23966896)
-- Prior work DOI: [10.5281/zenodo.23934465](https://doi.org/10.5281/zenodo.23934465)
+- AetherGit DOI: https://doi.org/10.5281/zenodo.23966896
+- Prior work DOI: https://doi.org/10.5281/zenodo.23934465
 
 ---
 
@@ -258,86 +288,107 @@ pointers, which AetherGit's changeset tuple provides.
 
 | Platform | URL | Role | Status |
 |---|---|---|---|
-| **GitHub** | [github.com/gitdeeper15/aetherflow](https://github.com/gitdeeper15/aetherflow) | Source code, issues, PRs | ✅ Active |
-| **GitLab** | [gitlab.com/gitdeeper15/aetherflow](https://gitlab.com/gitdeeper15/aetherflow) | Mirror repository | ✅ Active |
-| **Codeberg** | [codeberg.org/gitdeeper15/aetherflow](https://codeberg.org/gitdeeper15/aetherflow) | Mirror repository | ✅ Active |
-| **Bitbucket** | [bitbucket.org/gitdeeper15/aetherflow](https://bitbucket.org/gitdeeper15/aetherflow) | Mirror repository | ✅ Active |
-| **Zenodo** | [doi.org/10.5281/zenodo.23979129](https://doi.org/10.5281/zenodo.23979129) | Citable DOI, paper archive | ✅ Published |
-| **OSF** | [doi.org/10.17605/OSF.IO/92Y3W](https://doi.org/10.17605/OSF.IO/92Y3W) | Registration | ✅ Published |
-| **Website** | [aetherflow-site.netlify.app](https://aetherflow-site.netlify.app) | Live documentation | ⚠️ Verify |
-| **ORCID** | [orcid.org/0009-0003-8903-0029](https://orcid.org/0009-0003-8903-0029) | Author identity | ✅ Active |
-| **PyPI** | [pypi.org/project/aetherflow](https://pypi.org/project/aetherflow/) | Python package | ❌ **Not yet published** |
-
-> **PyPI note:** Not published because the paper reports **no implementation**
-> (Section 9: Limitations). A future alpha release (`0.1.0a1`) may follow after
-> empirical work. A `1.0.0` release would incorrectly imply API stability.
+| **GitHub** | https://github.com/gitdeeper15/aetherflow | Source code, issues, PRs | ✅ Active |
+| **GitLab** | https://gitlab.com/gitdeeper15/aetherflow | Mirror repository | ✅ Active |
+| **Codeberg** | https://codeberg.org/gitdeeper15/aetherflow | Mirror repository | ✅ Active |
+| **Bitbucket** | https://bitbucket.org/gitdeeper15/aetherflow | Mirror repository | ✅ Active |
+| **PyPI** | https://pypi.org/project/aetherflow/ | Python package | ✅ **Published** |
+| **Zenodo** | https://doi.org/10.5281/zenodo.23979129 | Citable DOI, paper archive | ✅ Published |
+| **OSF** | https://doi.org/10.17605/OSF.IO/92Y3W | Registration | ✅ Published |
+| **Website** | https://aetherflow-site.netlify.app | Live documentation | ✅ Active |
+| **ORCID** | https://orcid.org/0009-0003-8903-0029 | Author identity | ✅ Active |
 
 ---
 
-## Project Structure
+## Installation
 
+```bash
+pip install aetherflow
 ```
 
+Quick start
+
+```python
+from aetherflow import (
+    conflict_window,
+    remediation_bound,
+    minimum_tier_depth,
+)
+
+# Definition 1: dynamic conflict window
+w = conflict_window(tau=1.0, overlap=0.5)
+
+# Definition 3: auto-remediation bound
+p = remediation_bound(lambda_fail=0.6, mu_remediate=1.0, K=8, gamma=0.15, T_react=8.0)
+
+# Proposition 3: minimum tier depth
+K = minimum_tier_depth(epsilon=0.008, rho=0.6, gamma=0.15, T_react=8.0)
+```
+
+CLI
+
+```bash
+aetherflow conflict-window --tau 1.0 --overlap 0.5
+aetherflow remediation-bound --lambda-fail 0.6 --mu-remediate 1.0 --K 8
+aetherflow min-tier-depth --epsilon 0.008 --rho 0.6
+```
+
+---
+
+Project Structure
+
+```
 AetherFlow/
+├── src/aetherflow/                # Reference implementation
+│   ├── admission/                 # Pillar 1
+│   ├── verification/              # Pillar 2
+│   ├── remediation/               # Pillar 3
+│   ├── conflict/                  # Definition 1
+│   ├── models.py
+│   └── cli.py
+├── tests/                         # 24 tests, 98% coverage
+├── experiments/                   # 5 protocols
 ├── docs/
-│   ├── 01_formalization/              # Definition 1, 2, 3
-│   ├── 02_architecture/               # Three architectural pillars
-│   ├── 03_conflict_window/            # Conflict probability bounds
-│   ├── 04_evaluation/                 # Simulation protocol
-│   ├── ITERATION_LOG.md
-│   └── comprehensive_audit_report.json
-├── protocol/
-│   └── methodology_scope.md           # v1.0.0 — Deferred
-├── literature/
-│   └── README.md                      # Pending
+│   ├── 01_formalization/          # Definitions 1-3
+│   ├── 02_architecture/           # Pillars
+│   ├── 03_conflict_window/
+│   ├── 04_evaluation/
+│   └── 05_implementation/         # v2.0.0
 ├── figures/
-│   ├── fig1_conflict_window.png
-│   ├── fig2_verification_operator.png
-│   ├── fig3_remediation_bound.png
-│   └── fig4_architecture.png
-├── ANALYSIS/
-├── DATA/
-│   └── raw/
-├── EXTERNAL_REVIEW/
 ├── PUBLICATION/
 │   ├── AetherFlow_Research_Paper.pdf
 │   └── Netlify/
-│       └── public/
 ├── REPORTS/
-├── VALIDATION/
-├── AUTHORS.md
+│   └── v2.0.0/
+│       └── report.md
 ├── CHANGELOG.md
 ├── CITATION.cff
-├── CONTRIBUTING.md
 ├── INVENTORY.md
 ├── LICENSE
 ├── PROJECT_SUMMARY.txt
 ├── README.md
 ├── VERSION
-├── manifest.json
-├── scientific_state.json
-└── requirements.txt
-
+└── pyproject.toml
 ```
 
 ---
 
-## Version History
+Version History
 
-| Version | Release | Focus | Status |
-|---|---|---|---|
-| **v2.0.0** | 2026-11 | Empirical implementation + 5 experiments | ✅ Implemented |
-| **v1.0.0** | 2026-11 | Formalization (3 definitions, 3 propositions) | ✅ Defined |
-| _(planned)_ | 2027+ | Real-world deployment + benchmarking | Not executed |
+Version Release Focus Status
+v2.0.0 2026-11 (https://github.com/gitdeeper15/aetherflow/releases/tag/v2.0.0) Empirical implementation + 5 experiments ✅ Implemented
+v1.0.0 2026-11 (https://github.com/gitdeeper15/aetherflow/releases/tag/v1.0.0) Formalization (3 definitions, 3 propositions) ✅ Defined
+(planned) 2027+ Real-world deployment + benchmarking Not executed
 
-> **v2.0.0**: Reference implementation with 24 tests (98% coverage) and 5 experiments.
-> Results are preliminary; see `REPORTS/v2.0.0/report.md` for details.
+v2.0.0: Reference implementation with 24 tests (98% coverage) and 5 experiments.
+Available on PyPI as aetherflow. Results are preliminary; see
+REPORTS/v2.0.0/report.md for details.
 
 ---
 
-## Citation
+Citation
 
-### Primary Manuscript (AetherFlow)
+Primary Manuscript (AetherFlow v1.0.0)
 
 ```bibtex
 @techreport{baladi2026aetherflow,
@@ -350,8 +401,24 @@ AetherFlow/
   version      = {1.0.0},
   doi          = {10.5281/zenodo.23979129},
   url          = {https://doi.org/10.5281/zenodo.23979129},
-  note         = {Initial Program Manuscript --- Formalization Stage.
-                  Three formal definitions, three architectural pillars, three propositions with proofs.}
+  note         = {Initial Program Manuscript --- Formalization Stage.}
+}
+```
+
+Software Archive (PyPI + Zenodo)
+
+```bibtex
+@software{baladi2026aetherflow_v2,
+  author       = {Baladi, Samir},
+  title        = {{AetherFlow} v2.0.0: Empirical Implementation of Automated Post-Merge Verification and Dynamic Conflict Resolution},
+  year         = {2026},
+  month        = {November},
+  publisher    = {PyPI},
+  version      = {2.0.0},
+  doi          = {10.5281/zenodo.23979129},
+  url          = {https://pypi.org/project/aetherflow/},
+  note         = {Reference implementation.
+                  Available via pip install aetherflow.}
 }
 ```
 
@@ -365,13 +432,14 @@ Samir Baladi
 · Research Area: Computer Science / Software Engineering
 · Research Domain: Version Control Systems, Distributed Systems, Agentic Software Engineering
 · Research Type: Formal Architecture Proposal — Conceptual and Structural Analysis
-· 📧 gitdeeper@gmail.com
-· 🔗 ORCID: 0009-0003-8903-0029
-· 🐙 GitHub
-· 🦊 GitLab
-· 🟦 Codeberg
-· 🪣 Bitbucket
-· 🌐 Official Site
+· 📧 Email: gitdeeper@gmail.com
+· 🔗 ORCID: https://orcid.org/0009-0003-8903-0029
+· 🐙 GitHub: https://github.com/gitdeeper15/aetherflow
+· 🦊 GitLab: https://gitlab.com/gitdeeper15/aetherflow
+· 🟦 Codeberg: https://codeberg.org/gitdeeper15/aetherflow
+· 🪣 Bitbucket: https://bitbucket.org/gitdeeper15/aetherflow
+· 🐝 PyPI: https://pypi.org/project/aetherflow/
+· 🌐 Official Site: https://aetherflow-site.netlify.app
 
 ---
 
@@ -399,6 +467,9 @@ Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
 
 ---
 
-AetherFlow — Initial Program Manuscript v1.0.0
+AetherFlow — Initial Program Manuscript v2.0.0
 © 2026 Samir Baladi — Ronin Institute / Rite of Renaissance — MIT (code) + CC-BY-4.0 (docs)
-Zenodo: 10.5281/zenodo.23979129 · OSF: 10.17605/OSF.IO/92Y3W · Official Site: aetherflow-site.netlify.app
+Zenodo: https://doi.org/10.5281/zenodo.23979129
+OSF: https://doi.org/10.17605/OSF.IO/92Y3W
+PyPI: https://pypi.org/project/aetherflow/
+Official Site: https://aetherflow-site.netlify.app
